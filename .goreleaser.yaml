@@ -1,0 +1,58 @@
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: granola-mcp
+    main: ./cmd/granola-mcp
+    binary: granola-mcp
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X main.version={{.Version}}
+      - -X main.commit={{.Commit}}
+      - -X main.date={{.Date}}
+
+archives:
+  - id: granola-mcp
+    format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+      - "^chore:"
+
+brews:
+  - repository:
+      owner: felixgeelhaar
+      name: homebrew-tap
+    name: granola-mcp
+    homepage: "https://github.com/felixgeelhaar/granola-mcp"
+    description: "Go CLI and MCP server for Granola meeting intelligence"
+    license: "MIT"
+    install: |
+      bin.install "granola-mcp"
+
+release:
+  github:
+    owner: felixgeelhaar
+    name: granola-mcp
+  draft: false
+  prerelease: auto
+  name_template: "v{{.Version}}"
