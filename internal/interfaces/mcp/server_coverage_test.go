@@ -590,7 +590,7 @@ func TestServer_HandleToolJSON_WriteTools(t *testing.T) {
 	}
 
 	// list_notes via JSON
-	raw, err = srv.HandleToolJSON(context.Background(), "list_notes", json.RawMessage(`{"meeting_id":"m-1"}`))
+	_, err = srv.HandleToolJSON(context.Background(), "list_notes", json.RawMessage(`{"meeting_id":"m-1"}`))
 	if err != nil {
 		t.Fatalf("list_notes: %v", err)
 	}
@@ -603,7 +603,7 @@ func TestServer_HandleToolJSON_WriteTools(t *testing.T) {
 	}
 
 	// complete_action_item via JSON
-	raw, err = srv.HandleToolJSON(context.Background(), "complete_action_item", json.RawMessage(`{"meeting_id":"m-1","action_item_id":"ai-1"}`))
+	_, err = srv.HandleToolJSON(context.Background(), "complete_action_item", json.RawMessage(`{"meeting_id":"m-1","action_item_id":"ai-1"}`))
 	if err != nil {
 		t.Fatalf("complete_action_item: %v", err)
 	}
