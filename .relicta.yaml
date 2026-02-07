@@ -55,7 +55,7 @@ output:
     pluginauditlog: ""
 plugins:
     - name: github
-      enabled: true
+      enabled: false
       path: ""
       config:
         draft: false

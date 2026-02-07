@@ -42,6 +42,7 @@ brews:
   - repository:
       owner: felixgeelhaar
       name: homebrew-tap
+      token: "{{ .Env.GITHUB_TOKEN }}"
     name: granola-mcp
     homepage: "https://github.com/felixgeelhaar/granola-mcp"
     description: "Go CLI and MCP server for Granola meeting intelligence"
@@ -53,6 +54,7 @@ release:
   github:
     owner: felixgeelhaar
     name: granola-mcp
+  mode: replace
   draft: false
   prerelease: auto
   name_template: "v{{.Version}}"
