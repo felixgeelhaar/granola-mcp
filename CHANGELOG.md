@@ -17,3 +17,12 @@ All notable changes to this project will be documented in this file.
 
 - ci: add GitHub Actions for CI and automated releases
 
+
+
+- fix: remove ineffectual assignments in test
+- fix: resolve all remaining errcheck violations
+- fix: scope gitignore binary pattern to root only
+- fix: handle all unchecked error returns (errcheck)
+- fix(ci): use golangci-lint v2.8 for Go 1.25 compatibility
+- fix(ci): use golangci-lint-action v7 for golangci-lint v2
+

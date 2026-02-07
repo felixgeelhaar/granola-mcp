@@ -1,0 +1,192 @@
+{
+  "id": "run-0de6bfbe68978a9d",
+  "plan_hash": "42275bedfdacc06132f2ee1a667c648064f7e1c2783ae6087b99944febe78791",
+  "repo_id": "git@github.com:felixgeelhaar/granola-mcp.git",
+  "repo_root": "/Users/felixgeelhaar/Developer/projects/open_source/granola-mcp",
+  "base_ref": "v1.0.2",
+  "head_sha": "6a1f0b9da8f08397bec5d9ccce15600c33785609",
+  "commits": [
+    "6a1f0b9da8f08397bec5d9ccce15600c33785609",
+    "57e9e0474c6922b21d8bf1c3eefd95ef85808e11",
+    "18f7aa6b68ae5f8d016ee81cb153fc5b73e83665",
+    "9e027d2ff490939fd8253515c844dd5059fb10ee",
+    "280fbc4de3906a60c643e08b86744fe9807a2b93",
+    "dcfd4ea74ede9b5bfc053323b56b1611773912a6"
+  ],
+  "config_hash": "",
+  "plugin_plan_hash": "",
+  "version_current": "1.0.2",
+  "version_next": "1.0.3",
+  "bump_kind": "patch",
+  "confidence": 0,
+  "risk_score": 0,
+  "reasons": null,
+  "actor_type": "user",
+  "actor_id": "cli",
+  "thresholds": {
+    "auto_approve_risk_threshold": 0,
+    "require_approval_above": 0,
+    "block_release_above": 0
+  },
+  "tag_name": "v1.0.3",
+  "notes": {
+    "text": "- fix: remove ineffectual assignments in test\n- fix: resolve all remaining errcheck violations\n- fix: scope gitignore binary pattern to root only\n- fix: handle all unchecked error returns (errcheck)\n- fix(ci): use golangci-lint v2.8 for Go 1.25 compatibility\n- fix(ci): use golangci-lint-action v7 for golangci-lint v2\n",
+    "audience_preset": "",
+    "tone_preset": "",
+    "provider": "basic",
+    "model": "",
+    "generated_at": "2026-02-07T11:39:21.690967+01:00"
+  },
+  "approval": {
+    "approved_by": "felixgeelhaar",
+    "approved_at": "2026-02-07T11:39:22.097139+01:00",
+    "auto_approved": true,
+    "plan_hash": "42275bedfdacc06132f2ee1a667c648064f7e1c2783ae6087b99944febe78791",
+    "risk_score": 0,
+    "approver_type": "user"
+  },
+  "steps": [
+    {
+      "name": "create-tag",
+      "type": "tag",
+      "config_hash": "",
+      "idempotency_key": ""
+    }
+  ],
+  "step_status": {
+    "create-tag": {
+      "state": "done",
+      "attempts": 1,
+      "started_at": "2026-02-07T11:39:22.513372+01:00",
+      "completed_at": "2026-02-07T11:39:23.497966+01:00",
+      "output": "Created and pushed tag v1.0.3"
+    }
+  },
+  "state": "published",
+  "history": [
+    {
+      "at": "2026-02-07T11:39:17.869949+01:00",
+      "from": "draft",
+      "to": "planned",
+      "event": "PLAN",
+      "actor": "cli",
+      "reason": "Release planned"
+    },
+    {
+      "at": "2026-02-07T11:39:21.275297+01:00",
+      "from": "planned",
+      "to": "versioned",
+      "event": "BUMP",
+      "actor": "cli",
+      "reason": "Version applied",
+      "metadata": {
+        "tag_name": "v1.0.3",
+        "version": "1.0.3"
+      }
+    },
+    {
+      "at": "2026-02-07T11:39:21.690972+01:00",
+      "from": "versioned",
+      "to": "notes_ready",
+      "event": "GENERATE_NOTES",
+      "actor": "cli",
+      "reason": "Notes generated"
+    },
+    {
+      "at": "2026-02-07T11:39:22.097152+01:00",
+      "from": "notes_ready",
+      "to": "approved",
+      "event": "APPROVE",
+      "actor": "felixgeelhaar",
+      "reason": "Release approved",
+      "metadata": {
+        "auto_approved": "true",
+        "plan_hash": "42275bedfdacc06132f2ee1a667c648064f7e1c2783ae6087b99944febe78791",
+        "risk_score": "0.00"
+      }
+    },
+    {
+      "at": "2026-02-07T11:39:22.512867+01:00",
+      "from": "approved",
+      "to": "publishing",
+      "event": "START_PUBLISH",
+      "actor": "cli",
+      "reason": "Publishing started"
+    },
+    {
+      "at": "2026-02-07T11:39:23.498783+01:00",
+      "from": "publishing",
+      "to": "published",
+      "event": "PUBLISH_COMPLETE",
+      "actor": "cli",
+      "reason": "Release published"
+    }
+  ],
+  "changeset_id": "cs-1770460757828407000",
+  "changeset": {
+    "id": "cs-1770460757828407000",
+    "from_ref": "v1.0.2",
+    "to_ref": "HEAD",
+    "commits": [
+      {
+        "hash": "6a1f0b9da8f08397bec5d9ccce15600c33785609",
+        "type": "fix",
+        "subject": "fix: remove ineffectual assignments in test",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:38:19+01:00",
+        "raw_message": "fix: remove ineffectual assignments in test\n"
+      },
+      {
+        "hash": "57e9e0474c6922b21d8bf1c3eefd95ef85808e11",
+        "type": "fix",
+        "subject": "fix: resolve all remaining errcheck violations",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:37:23+01:00",
+        "raw_message": "fix: resolve all remaining errcheck violations\n\nComprehensive pass across 19 files to handle all unchecked error\nreturns from Close(), Encode(), Write(), and fmt.Fprint* calls.\n"
+      },
+      {
+        "hash": "18f7aa6b68ae5f8d016ee81cb153fc5b73e83665",
+        "type": "fix",
+        "subject": "fix: scope gitignore binary pattern to root only",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:30:43+01:00",
+        "raw_message": "fix: scope gitignore binary pattern to root only\n\nChange `granola-mcp` to `/granola-mcp` so it only ignores the\nbuilt binary at the root, not the cmd/granola-mcp directory.\n"
+      },
+      {
+        "hash": "9e027d2ff490939fd8253515c844dd5059fb10ee",
+        "type": "fix",
+        "subject": "fix: handle all unchecked error returns (errcheck)",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:30:30+01:00",
+        "raw_message": "fix: handle all unchecked error returns (errcheck)\n\nExplicitly discard or handle error returns from Close(), Encode(),\nand Write() calls flagged by golangci-lint errcheck.\n"
+      },
+      {
+        "hash": "280fbc4de3906a60c643e08b86744fe9807a2b93",
+        "type": "fix",
+        "scope": "ci",
+        "subject": "fix(ci): use golangci-lint v2.8 for Go 1.25 compatibility",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:24:23+01:00",
+        "raw_message": "fix(ci): use golangci-lint v2.8 for Go 1.25 compatibility\n"
+      },
+      {
+        "hash": "dcfd4ea74ede9b5bfc053323b56b1611773912a6",
+        "type": "fix",
+        "scope": "ci",
+        "subject": "fix(ci): use golangci-lint-action v7 for golangci-lint v2",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:22:14+01:00",
+        "raw_message": "fix(ci): use golangci-lint-action v7 for golangci-lint v2\n"
+      }
+    ]
+  },
+  "created_at": "2026-02-07T11:39:17.869924+01:00",
+  "updated_at": "2026-02-07T11:39:23.498787+01:00",
+  "published_at": "2026-02-07T11:39:23.498777+01:00"
+}
