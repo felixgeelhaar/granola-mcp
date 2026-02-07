@@ -1,0 +1,151 @@
+{
+  "id": "run-e926cf5aeed7959b",
+  "plan_hash": "aada6f6fd2a2ff4982d794ea615efc72634c89e87282e6acc2f40cedcaab656d",
+  "repo_id": "git@github.com:felixgeelhaar/acai.git",
+  "repo_root": "/Users/felixgeelhaar/Developer/projects/open_source/granola-mcp",
+  "base_ref": "v1.1.0",
+  "head_sha": "95e369429100e0762a1d337ce46e97737b923dee",
+  "commits": [
+    "95e369429100e0762a1d337ce46e97737b923dee",
+    "cb26272ddd02870905d08d936d5e15d3ac3923c8"
+  ],
+  "config_hash": "",
+  "plugin_plan_hash": "",
+  "version_current": "1.1.0",
+  "version_next": "2.0.0",
+  "bump_kind": "minor",
+  "confidence": 0,
+  "risk_score": 0,
+  "reasons": null,
+  "actor_type": "user",
+  "actor_id": "cli",
+  "thresholds": {
+    "auto_approve_risk_threshold": 0,
+    "require_approval_above": 0,
+    "block_release_above": 0
+  },
+  "tag_name": "v2.0.0",
+  "notes": {
+    "text": "- feat: rename to acai v2.0.0 and add GitHub Pages landing site\n- chore(release): update changelog for v1.1.0\n",
+    "audience_preset": "",
+    "tone_preset": "",
+    "provider": "basic",
+    "model": "",
+    "generated_at": "2026-02-07T13:06:38.311663+01:00"
+  },
+  "approval": {
+    "approved_by": "felixgeelhaar",
+    "approved_at": "2026-02-07T13:06:49.871963+01:00",
+    "auto_approved": false,
+    "plan_hash": "aada6f6fd2a2ff4982d794ea615efc72634c89e87282e6acc2f40cedcaab656d",
+    "risk_score": 0,
+    "approver_type": "user"
+  },
+  "steps": [
+    {
+      "name": "create-tag",
+      "type": "tag",
+      "config_hash": "",
+      "idempotency_key": ""
+    }
+  ],
+  "step_status": {
+    "create-tag": {
+      "state": "done",
+      "attempts": 1,
+      "started_at": "2026-02-07T13:06:55.291326+01:00",
+      "completed_at": "2026-02-07T13:06:56.286464+01:00",
+      "output": "Created and pushed tag v2.0.0"
+    }
+  },
+  "state": "published",
+  "history": [
+    {
+      "at": "2026-02-07T13:06:27.64063+01:00",
+      "from": "draft",
+      "to": "planned",
+      "event": "PLAN",
+      "actor": "cli",
+      "reason": "Release planned"
+    },
+    {
+      "at": "2026-02-07T13:06:32.790886+01:00",
+      "from": "planned",
+      "to": "versioned",
+      "event": "BUMP",
+      "actor": "cli",
+      "reason": "Version applied",
+      "metadata": {
+        "tag_name": "v2.0.0",
+        "version": "2.0.0"
+      }
+    },
+    {
+      "at": "2026-02-07T13:06:38.31167+01:00",
+      "from": "versioned",
+      "to": "notes_ready",
+      "event": "GENERATE_NOTES",
+      "actor": "cli",
+      "reason": "Notes generated"
+    },
+    {
+      "at": "2026-02-07T13:06:49.871974+01:00",
+      "from": "notes_ready",
+      "to": "approved",
+      "event": "APPROVE",
+      "actor": "felixgeelhaar",
+      "reason": "Release approved",
+      "metadata": {
+        "auto_approved": "false",
+        "plan_hash": "aada6f6fd2a2ff4982d794ea615efc72634c89e87282e6acc2f40cedcaab656d",
+        "risk_score": "0.00"
+      }
+    },
+    {
+      "at": "2026-02-07T13:06:55.29067+01:00",
+      "from": "approved",
+      "to": "publishing",
+      "event": "START_PUBLISH",
+      "actor": "cli",
+      "reason": "Publishing started"
+    },
+    {
+      "at": "2026-02-07T13:06:56.287356+01:00",
+      "from": "publishing",
+      "to": "published",
+      "event": "PUBLISH_COMPLETE",
+      "actor": "cli",
+      "reason": "Release published"
+    }
+  ],
+  "changeset_id": "cs-1770465987601035000",
+  "changeset": {
+    "id": "cs-1770465987601035000",
+    "from_ref": "v1.1.0",
+    "to_ref": "HEAD",
+    "commits": [
+      {
+        "hash": "95e369429100e0762a1d337ce46e97737b923dee",
+        "type": "feat",
+        "subject": "feat: rename to acai v2.0.0 and add GitHub Pages landing site",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T12:57:48+01:00",
+        "raw_message": "feat: rename to acai v2.0.0 and add GitHub Pages landing site\n\nRename project from granola-mcp to acai — binary, env vars (ACAI_\nprefix), config dir (~/.acai/), module path, and all internal imports\nupdated.\n\nAdd Astro + Vue + Tailwind v4 landing site under site/ with Tokyo\nNight theme, interactive architecture diagrams, and auto-deploy to\nGitHub Pages via .github/workflows/pages.yml.\n\nRemove deprecated granola-mcp formula from homebrew-tap.\n"
+      },
+      {
+        "hash": "cb26272ddd02870905d08d936d5e15d3ac3923c8",
+        "type": "chore",
+        "scope": "release",
+        "subject": "chore(release): update changelog for v1.1.0",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:50:02+01:00",
+        "raw_message": "chore(release): update changelog for v1.1.0\n"
+      }
+    ]
+  },
+  "created_at": "2026-02-07T13:06:27.640542+01:00",
+  "updated_at": "2026-02-07T13:06:56.287358+01:00",
+  "published_at": "2026-02-07T13:06:56.287347+01:00"
+}

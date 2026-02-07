@@ -31,3 +31,8 @@ All notable changes to this project will be documented in this file.
 - feat: add linux/amd64 and linux/arm64 builds
 - chore(release): update changelog for v1.0.3
 
+
+
+- feat: rename to acai v2.0.0 and add GitHub Pages landing site
+- chore(release): update changelog for v1.1.0
+
