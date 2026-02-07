@@ -78,7 +78,7 @@ func main() {
 	if cfg.Cache.Enabled {
 		cacheDir := cfg.Cache.Dir
 		if err := os.MkdirAll(cacheDir, 0o700); err != nil {
-			fmt.Fprintf(os.Stderr, "Warning: cannot create cache dir: %v\n", err)
+			_, _ = fmt.Fprintf(os.Stderr, "Warning: cannot create cache dir: %v\n", err)
 		} else {
 			dbPath := filepath.Join(cacheDir, "cache.db")
 			db, err := sql.Open("sqlite3", dbPath)
@@ -108,16 +108,16 @@ func main() {
 	// Local store (SQLite for write-side: notes, action item overrides, outbox)
 	localDir := cfg.Cache.Dir // Reuse cache dir for local store
 	if err := os.MkdirAll(localDir, 0o700); err != nil {
-		fmt.Fprintf(os.Stderr, "Warning: cannot create local store dir: %v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Warning: cannot create local store dir: %v\n", err)
 	}
 	localDBPath := filepath.Join(localDir, "local.db")
 	localDB, err := sql.Open("sqlite3", localDBPath)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Warning: cannot open local store: %v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Warning: cannot open local store: %v\n", err)
 	} else {
 		defer func() { _ = localDB.Close() }()
 		if err := localstore.InitSchema(localDB); err != nil {
-			fmt.Fprintf(os.Stderr, "Warning: cannot init local store schema: %v\n", err)
+			_, _ = fmt.Fprintf(os.Stderr, "Warning: cannot init local store schema: %v\n", err)
 		}
 	}
 
@@ -177,7 +177,7 @@ func main() {
 	if cfg.Policy.Enabled && cfg.Policy.FilePath != "" {
 		loadResult, policyErr := infraPolicy.LoadFromFile(cfg.Policy.FilePath)
 		if policyErr != nil {
-			fmt.Fprintf(os.Stderr, "Warning: cannot load policy file: %v\n", policyErr)
+			_, _ = fmt.Fprintf(os.Stderr, "Warning: cannot load policy file: %v\n", policyErr)
 		} else {
 			policyEngine := infraPolicy.NewEngine(loadResult)
 			_ = mcpiface.NewPolicyMiddleware(mcpServer, policyEngine)
@@ -210,7 +210,7 @@ func main() {
 
 	// Execute CLI
 	if err := cli.NewRootCmd(deps).Execute(); err != nil {
-		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 		os.Exit(1)
 	}
 }

@@ -15,7 +15,7 @@ import (
 func TestRepository_FindByID(t *testing.T) {
 	now := time.Now().UTC().Truncate(time.Second)
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(granola.DocumentDTO{
+		_ = json.NewEncoder(w).Encode(granola.DocumentDTO{
 			ID:        "m-1",
 			Title:     "Sprint Planning",
 			CreatedAt: now,
@@ -63,7 +63,7 @@ func TestRepository_FindByID_NotFound(t *testing.T) {
 func TestRepository_List(t *testing.T) {
 	now := time.Now().UTC().Truncate(time.Second)
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(granola.DocumentListResponse{
+		_ = json.NewEncoder(w).Encode(granola.DocumentListResponse{
 			Documents: []granola.DocumentDTO{
 				{ID: "m-1", Title: "Meeting 1", CreatedAt: now, Source: "zoom"},
 				{ID: "m-2", Title: "Meeting 2", CreatedAt: now, Source: "teams"},
@@ -87,7 +87,7 @@ func TestRepository_List(t *testing.T) {
 func TestRepository_GetTranscript(t *testing.T) {
 	now := time.Now().UTC().Truncate(time.Second)
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(granola.TranscriptResponse{
+		_ = json.NewEncoder(w).Encode(granola.TranscriptResponse{
 			MeetingID: "m-1",
 			Utterances: []granola.UtteranceDTO{
 				{Speaker: "Alice", Text: "Hello", Timestamp: now, Confidence: 0.95},
@@ -111,7 +111,7 @@ func TestRepository_GetTranscript(t *testing.T) {
 func TestRepository_Sync(t *testing.T) {
 	now := time.Now().UTC().Truncate(time.Second)
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(granola.DocumentListResponse{
+		_ = json.NewEncoder(w).Encode(granola.DocumentListResponse{
 			Documents: []granola.DocumentDTO{
 				{ID: "m-new", Title: "New Meeting", CreatedAt: now, Source: "zoom"},
 			},

@@ -373,7 +373,7 @@ func TestServer_ServeHTTP_HealthEndpoint(t *testing.T) {
 	if err != nil {
 		t.Fatalf("health request failed: %v", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		t.Errorf("expected 200, got %d", resp.StatusCode)
@@ -411,7 +411,7 @@ func TestServer_ServeHTTP_WithWebhookRoute(t *testing.T) {
 	if err != nil {
 		t.Fatalf("webhook request failed: %v", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		t.Errorf("expected 200, got %d", resp.StatusCode)

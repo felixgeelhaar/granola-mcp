@@ -37,7 +37,7 @@ func newActionCompleteCmd(deps *Dependencies) *cobra.Command {
 			if err != nil {
 				return fmt.Errorf("failed to complete action item: %w", err)
 			}
-			fmt.Fprintf(deps.Out, "Action item %s completed (text: %s)\n", out.Item.ID(), out.Item.Text())
+			_, _ = fmt.Fprintf(deps.Out, "Action item %s completed (text: %s)\n", out.Item.ID(), out.Item.Text())
 			return nil
 		},
 	}
@@ -60,7 +60,7 @@ func newActionUpdateCmd(deps *Dependencies) *cobra.Command {
 			if err != nil {
 				return fmt.Errorf("failed to update action item: %w", err)
 			}
-			fmt.Fprintf(deps.Out, "Action item %s updated (text: %s)\n", out.Item.ID(), out.Item.Text())
+			_, _ = fmt.Fprintf(deps.Out, "Action item %s updated (text: %s)\n", out.Item.ID(), out.Item.Text())
 			return nil
 		},
 	}

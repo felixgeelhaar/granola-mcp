@@ -17,7 +17,7 @@ func openTestDB(t *testing.T) *sql.DB {
 	if err != nil {
 		t.Fatalf("open db: %v", err)
 	}
-	t.Cleanup(func() { db.Close() })
+	t.Cleanup(func() { _ = db.Close() })
 	if err := localstore.InitSchema(db); err != nil {
 		t.Fatalf("init schema: %v", err)
 	}

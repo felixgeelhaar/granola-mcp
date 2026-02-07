@@ -73,14 +73,14 @@ func (uc *ExportMeeting) Execute(ctx context.Context, input ExportMeetingInput) 
 
 func formatMarkdown(m *domain.Meeting) string {
 	var b strings.Builder
-	fmt.Fprintf(&b, "# %s\n\n", m.Title())
-	fmt.Fprintf(&b, "**Date:** %s\n", m.Datetime().Format(time.RFC3339))
-	fmt.Fprintf(&b, "**Source:** %s\n\n", m.Source())
+	_, _ = fmt.Fprintf(&b, "# %s\n\n", m.Title())
+	_, _ = fmt.Fprintf(&b, "**Date:** %s\n", m.Datetime().Format(time.RFC3339))
+	_, _ = fmt.Fprintf(&b, "**Source:** %s\n\n", m.Source())
 
 	if len(m.Participants()) > 0 {
 		b.WriteString("## Participants\n\n")
 		for _, p := range m.Participants() {
-			fmt.Fprintf(&b, "- %s (%s)\n", p.Name(), p.Email())
+			_, _ = fmt.Fprintf(&b, "- %s (%s)\n", p.Name(), p.Email())
 		}
 		b.WriteString("\n")
 	}
@@ -98,7 +98,7 @@ func formatMarkdown(m *domain.Meeting) string {
 			if item.IsCompleted() {
 				status = "[x]"
 			}
-			fmt.Fprintf(&b, "- %s %s (Owner: %s)\n", status, item.Text(), item.Owner())
+			_, _ = fmt.Fprintf(&b, "- %s %s (Owner: %s)\n", status, item.Text(), item.Owner())
 		}
 		b.WriteString("\n")
 	}
@@ -108,12 +108,12 @@ func formatMarkdown(m *domain.Meeting) string {
 
 func formatText(m *domain.Meeting) string {
 	var b strings.Builder
-	fmt.Fprintf(&b, "%s\n", m.Title())
-	fmt.Fprintf(&b, "Date: %s\n", m.Datetime().Format(time.RFC3339))
-	fmt.Fprintf(&b, "Source: %s\n", m.Source())
+	_, _ = fmt.Fprintf(&b, "%s\n", m.Title())
+	_, _ = fmt.Fprintf(&b, "Date: %s\n", m.Datetime().Format(time.RFC3339))
+	_, _ = fmt.Fprintf(&b, "Source: %s\n", m.Source())
 
 	if m.Summary() != nil {
-		fmt.Fprintf(&b, "\nSummary:\n%s\n", m.Summary().Content())
+		_, _ = fmt.Fprintf(&b, "\nSummary:\n%s\n", m.Summary().Content())
 	}
 
 	return b.String()
@@ -123,7 +123,7 @@ func formatJSON(m *domain.Meeting) string {
 	// Minimal JSON without encoding/json to avoid domain layer import concerns.
 	// The interfaces layer handles proper JSON serialization.
 	var b strings.Builder
-	fmt.Fprintf(&b, `{"id":"%s","title":"%s","datetime":"%s","source":"%s"}`,
+	_, _ = fmt.Fprintf(&b, `{"id":"%s","title":"%s","datetime":"%s","source":"%s"}`,
 		m.ID(), m.Title(), m.Datetime().Format(time.RFC3339), m.Source())
 	return b.String()
 }

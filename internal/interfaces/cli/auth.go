@@ -39,7 +39,7 @@ func newAuthLoginCmd(deps *Dependencies) *cobra.Command {
 				return fmt.Errorf("login failed: %w", err)
 			}
 
-			fmt.Fprintf(deps.Out, "Authenticated successfully (workspace: %s)\n", out.Credential.Workspace())
+			_, _ = fmt.Fprintf(deps.Out, "Authenticated successfully (workspace: %s)\n", out.Credential.Workspace())
 			return nil
 		},
 	}
@@ -60,11 +60,11 @@ func newAuthStatusCmd(deps *Dependencies) *cobra.Command {
 			}
 
 			if !out.Authenticated {
-				fmt.Fprintln(deps.Out, "Not authenticated. Run 'granola-mcp auth login' to authenticate.")
+				_, _ = fmt.Fprintln(deps.Out, "Not authenticated. Run 'granola-mcp auth login' to authenticate.")
 				return nil
 			}
 
-			fmt.Fprintf(deps.Out, "Authenticated (workspace: %s, method: %s)\n",
+			_, _ = fmt.Fprintf(deps.Out, "Authenticated (workspace: %s, method: %s)\n",
 				out.Credential.Workspace(), out.Credential.Method())
 			return nil
 		},

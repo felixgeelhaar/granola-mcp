@@ -57,7 +57,7 @@ func (s *SQLiteStore) ListPending() ([]Entry, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var entries []Entry
 	for rows.Next() {

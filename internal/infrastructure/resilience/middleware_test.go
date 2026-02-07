@@ -58,7 +58,7 @@ func (s *stubRepo) Sync(_ context.Context, _ *time.Time) ([]domain.DomainEvent, 
 func TestResilientRepository_DelegatesToInner(t *testing.T) {
 	inner := &stubRepo{}
 	repo := resilience.NewResilientRepository(inner, resilience.DefaultConfig())
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	_, err := repo.FindByID(context.Background(), "m-1")
 	if err != domain.ErrMeetingNotFound {
@@ -72,7 +72,7 @@ func TestResilientRepository_DelegatesToInner(t *testing.T) {
 func TestResilientRepository_List(t *testing.T) {
 	inner := &stubRepo{}
 	repo := resilience.NewResilientRepository(inner, resilience.DefaultConfig())
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	_, _ = repo.List(context.Background(), domain.ListFilter{})
 	if !inner.listCalled {
@@ -83,7 +83,7 @@ func TestResilientRepository_List(t *testing.T) {
 func TestResilientRepository_GetTranscript(t *testing.T) {
 	inner := &stubRepo{}
 	repo := resilience.NewResilientRepository(inner, resilience.DefaultConfig())
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	_, _ = repo.GetTranscript(context.Background(), "m-1")
 	if !inner.getTranscriptCalled {
@@ -94,7 +94,7 @@ func TestResilientRepository_GetTranscript(t *testing.T) {
 func TestResilientRepository_SearchTranscripts(t *testing.T) {
 	inner := &stubRepo{}
 	repo := resilience.NewResilientRepository(inner, resilience.DefaultConfig())
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	_, _ = repo.SearchTranscripts(context.Background(), "query", domain.ListFilter{})
 	if !inner.searchCalled {
@@ -105,7 +105,7 @@ func TestResilientRepository_SearchTranscripts(t *testing.T) {
 func TestResilientRepository_GetActionItems(t *testing.T) {
 	inner := &stubRepo{}
 	repo := resilience.NewResilientRepository(inner, resilience.DefaultConfig())
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	_, _ = repo.GetActionItems(context.Background(), "m-1")
 	if !inner.getActionItemsCalled {
@@ -116,7 +116,7 @@ func TestResilientRepository_GetActionItems(t *testing.T) {
 func TestResilientRepository_Sync(t *testing.T) {
 	inner := &stubRepo{}
 	repo := resilience.NewResilientRepository(inner, resilience.DefaultConfig())
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	_, _ = repo.Sync(context.Background(), nil)
 	if !inner.syncCalled {
@@ -136,7 +136,7 @@ func TestResilientRepository_Close(t *testing.T) {
 func TestResilientRepository_CancelledContext(t *testing.T) {
 	inner := &stubRepo{}
 	repo := resilience.NewResilientRepository(inner, resilience.DefaultConfig())
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	ctx, cancel := context.WithCancel(context.Background())
 	cancel()

@@ -124,7 +124,7 @@ func (s *Server) ServeHTTP(ctx context.Context, addr string, extraRoutes func(mu
 	mux.HandleFunc("/health", func(w http.ResponseWriter, _ *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
-		fmt.Fprintf(w, `{"status":"ok","server":"%s","version":"%s"}`, s.name, s.version)
+		_, _ = fmt.Fprintf(w, `{"status":"ok","server":"%s","version":"%s"}`, s.name, s.version)
 	})
 
 	if extraRoutes != nil {

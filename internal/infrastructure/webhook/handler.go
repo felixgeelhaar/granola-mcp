@@ -42,7 +42,7 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "failed to read body", http.StatusBadRequest)
 		return
 	}
-	defer r.Body.Close()
+	defer func() { _ = r.Body.Close() }()
 
 	if h.secret != "" {
 		sig := r.Header.Get("X-Granola-Signature")
@@ -85,7 +85,7 @@ func (h *Handler) handleSync(r *http.Request, payload GranolaWebhookPayload) {
 
 func (h *Handler) validSignature(body []byte, signature string) bool {
 	mac := hmac.New(sha256.New, []byte(h.secret))
-	mac.Write(body)
+	_, _ = mac.Write(body)
 	expected := hex.EncodeToString(mac.Sum(nil))
 	return hmac.Equal([]byte(expected), []byte(signature))
 }

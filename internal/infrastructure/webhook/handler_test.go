@@ -53,7 +53,7 @@ func (m *mockDispatcher) Dispatch(_ context.Context, events []domain.DomainEvent
 
 func signBody(secret string, body []byte) string {
 	mac := hmac.New(sha256.New, []byte(secret))
-	mac.Write(body)
+	_, _ = mac.Write(body)
 	return hex.EncodeToString(mac.Sum(nil))
 }
 

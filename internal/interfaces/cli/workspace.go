@@ -32,13 +32,13 @@ func newWorkspaceListCmd(deps *Dependencies) *cobra.Command {
 			}
 
 			if len(out.Workspaces) == 0 {
-				fmt.Fprintln(deps.Out, "No workspaces found.")
+				_, _ = fmt.Fprintln(deps.Out, "No workspaces found.")
 				return nil
 			}
 
-			fmt.Fprintf(deps.Out, "%-20s %-30s %s\n", "ID", "NAME", "SLUG")
+			_, _ = fmt.Fprintf(deps.Out, "%-20s %-30s %s\n", "ID", "NAME", "SLUG")
 			for _, ws := range out.Workspaces {
-				fmt.Fprintf(deps.Out, "%-20s %-30s %s\n", ws.ID(), ws.Name(), ws.Slug())
+				_, _ = fmt.Fprintf(deps.Out, "%-20s %-30s %s\n", ws.ID(), ws.Name(), ws.Slug())
 			}
 			return nil
 		},

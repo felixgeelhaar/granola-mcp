@@ -41,7 +41,7 @@ func newNoteAddCmd(deps *Dependencies) *cobra.Command {
 			if err != nil {
 				return fmt.Errorf("failed to add note: %w", err)
 			}
-			fmt.Fprintf(deps.Out, "Note %s added to meeting %s\n", out.Note.ID(), out.Note.MeetingID())
+			_, _ = fmt.Fprintf(deps.Out, "Note %s added to meeting %s\n", out.Note.ID(), out.Note.MeetingID())
 			return nil
 		},
 	}
@@ -71,9 +71,9 @@ func newNoteListCmd(deps *Dependencies) *cobra.Command {
 				return printJSON(deps, out.Notes)
 			default:
 				w := tabwriter.NewWriter(deps.Out, 0, 0, 2, ' ', 0)
-				fmt.Fprintln(w, "ID\tAUTHOR\tCONTENT\tCREATED")
+				_, _ = fmt.Fprintln(w, "ID\tAUTHOR\tCONTENT\tCREATED")
 				for _, n := range out.Notes {
-					fmt.Fprintf(w, "%s\t%s\t%s\t%s\n",
+					_, _ = fmt.Fprintf(w, "%s\t%s\t%s\t%s\n",
 						n.ID(), n.Author(), n.Content(), n.CreatedAt().Format("2006-01-02 15:04"))
 				}
 				return w.Flush()
@@ -97,7 +97,7 @@ func newNoteDeleteCmd(deps *Dependencies) *cobra.Command {
 			if err != nil {
 				return fmt.Errorf("failed to delete note: %w", err)
 			}
-			fmt.Fprintf(deps.Out, "Note %s deleted\n", args[0])
+			_, _ = fmt.Fprintf(deps.Out, "Note %s deleted\n", args[0])
 			return nil
 		},
 	}

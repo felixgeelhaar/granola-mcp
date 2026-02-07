@@ -62,9 +62,9 @@ func newListMeetingsCmd(deps *Dependencies) *cobra.Command {
 
 func printMeetingsTable(deps *Dependencies, meetings []*domain.Meeting) error {
 	w := tabwriter.NewWriter(deps.Out, 0, 0, 2, ' ', 0)
-	fmt.Fprintln(w, "ID\tTITLE\tDATE\tSOURCE")
+	_, _ = fmt.Fprintln(w, "ID\tTITLE\tDATE\tSOURCE")
 	for _, m := range meetings {
-		fmt.Fprintf(w, "%s\t%s\t%s\t%s\n",
+		_, _ = fmt.Fprintf(w, "%s\t%s\t%s\t%s\n",
 			m.ID(), m.Title(), m.Datetime().Format("2006-01-02 15:04"), m.Source())
 	}
 	return w.Flush()

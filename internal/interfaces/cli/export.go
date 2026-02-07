@@ -57,8 +57,8 @@ func newExportEmbeddingsCmd(deps *Dependencies) *cobra.Command {
 				return fmt.Errorf("export failed: %w", err)
 			}
 
-			fmt.Fprintln(deps.Out, out.Content)
-			fmt.Fprintf(deps.Out, "# %d chunks exported\n", out.ChunkCount)
+			_, _ = fmt.Fprintln(deps.Out, out.Content)
+			_, _ = fmt.Fprintf(deps.Out, "# %d chunks exported\n", out.ChunkCount)
 			return nil
 		},
 	}
@@ -88,7 +88,7 @@ func newExportMeetingCmd(deps *Dependencies) *cobra.Command {
 				return fmt.Errorf("export failed: %w", err)
 			}
 
-			fmt.Fprint(deps.Out, out.Content)
+			_, _ = fmt.Fprint(deps.Out, out.Content)
 			return nil
 		},
 	}

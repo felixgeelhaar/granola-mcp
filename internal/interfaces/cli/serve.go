@@ -29,7 +29,7 @@ func newServeCmd(deps *Dependencies) *cobra.Command {
 			switch transport {
 			case "http":
 				addr := fmt.Sprintf(":%d", port)
-				fmt.Fprintf(deps.Out, "Starting %s v%s MCP server (http on %s)...\n",
+				_, _ = fmt.Fprintf(deps.Out, "Starting %s v%s MCP server (http on %s)...\n",
 					deps.MCPServer.Name(), deps.MCPServer.Version(), addr)
 
 				err := deps.MCPServer.ServeHTTP(ctx, addr, func(mux *http.ServeMux) {
@@ -39,7 +39,7 @@ func newServeCmd(deps *Dependencies) *cobra.Command {
 				})
 				if err != nil {
 					if ctx.Err() != nil {
-						fmt.Fprintln(os.Stderr, "MCP server stopped.")
+						_, _ = fmt.Fprintln(os.Stderr, "MCP server stopped.")
 						return nil
 					}
 					return fmt.Errorf("MCP server error: %w", err)
@@ -47,12 +47,12 @@ func newServeCmd(deps *Dependencies) *cobra.Command {
 				return nil
 
 			default: // stdio
-				fmt.Fprintf(deps.Out, "Starting %s v%s MCP server (stdio)...\n",
+				_, _ = fmt.Fprintf(deps.Out, "Starting %s v%s MCP server (stdio)...\n",
 					deps.MCPServer.Name(), deps.MCPServer.Version())
 
 				if err := deps.MCPServer.ServeStdio(ctx); err != nil {
 					if ctx.Err() != nil {
-						fmt.Fprintln(os.Stderr, "MCP server stopped.")
+						_, _ = fmt.Fprintln(os.Stderr, "MCP server stopped.")
 						return nil
 					}
 					return fmt.Errorf("MCP server error: %w", err)
