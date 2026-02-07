@@ -71,7 +71,7 @@ func main() {
 		RateBurst:        cfg.Resilience.RateLimit.Rate * 2,
 		RateInterval:     cfg.Resilience.RateLimit.Interval,
 	})
-	defer resilientRepo.Close()
+	defer func() { _ = resilientRepo.Close() }()
 
 	// Cache decorator (SQLite local cache)
 	var repo domain.Repository = resilientRepo
@@ -86,7 +86,7 @@ func main() {
 				cachedRepo, cacheErr := cache.NewCachedRepository(resilientRepo, db, cfg.Cache.TTL)
 				if cacheErr == nil {
 					repo = cachedRepo
-					defer db.Close()
+					defer func() { _ = db.Close() }()
 				}
 			}
 		}
@@ -115,7 +115,7 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Warning: cannot open local store: %v\n", err)
 	} else {
-		defer localDB.Close()
+		defer func() { _ = localDB.Close() }()
 		if err := localstore.InitSchema(localDB); err != nil {
 			fmt.Fprintf(os.Stderr, "Warning: cannot init local store schema: %v\n", err)
 		}

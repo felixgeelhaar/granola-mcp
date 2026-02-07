@@ -57,7 +57,7 @@ func (r *NoteRepository) ListByMeeting(_ context.Context, meetingID string) ([]*
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var notes []*annotation.AgentNote
 	for rows.Next() {

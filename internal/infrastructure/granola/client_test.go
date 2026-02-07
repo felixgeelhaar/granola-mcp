@@ -32,7 +32,7 @@ func TestClient_GetDocuments(t *testing.T) {
 			},
 		}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(resp)
+		_ = json.NewEncoder(w).Encode(resp)
 	}))
 	defer server.Close()
 
@@ -71,7 +71,7 @@ func TestClient_GetTranscript(t *testing.T) {
 				{Speaker: "Alice", Text: "Hello", Timestamp: now, Confidence: 0.95},
 			},
 		}
-		json.NewEncoder(w).Encode(resp)
+		_ = json.NewEncoder(w).Encode(resp)
 	}))
 	defer server.Close()
 

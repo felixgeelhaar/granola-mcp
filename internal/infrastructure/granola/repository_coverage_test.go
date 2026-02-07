@@ -15,7 +15,7 @@ import (
 func TestRepository_SearchTranscripts(t *testing.T) {
 	now := time.Now().UTC().Truncate(time.Second)
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(granola.DocumentListResponse{
+		_ = json.NewEncoder(w).Encode(granola.DocumentListResponse{
 			Documents: []granola.DocumentDTO{
 				{ID: "m-1", Title: "Meeting with keyword", CreatedAt: now, Source: "zoom"},
 			},
@@ -39,7 +39,7 @@ func TestRepository_GetActionItems(t *testing.T) {
 	now := time.Now().UTC().Truncate(time.Second)
 	due := now.Add(48 * time.Hour)
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		json.NewEncoder(w).Encode(granola.DocumentDTO{
+		_ = json.NewEncoder(w).Encode(granola.DocumentDTO{
 			ID:        "m-1",
 			Title:     "Sprint Planning",
 			CreatedAt: now,
@@ -90,7 +90,7 @@ func TestClient_GetWorkspaces(t *testing.T) {
 		if r.URL.Path != "/v2/get-workspaces" {
 			t.Errorf("unexpected path: %s", r.URL.Path)
 		}
-		json.NewEncoder(w).Encode(granola.WorkspaceListResponse{
+		_ = json.NewEncoder(w).Encode(granola.WorkspaceListResponse{
 			Workspaces: []granola.WorkspaceDTO{
 				{ID: "ws-1", Name: "My Workspace", Slug: "my-workspace"},
 			},
@@ -113,7 +113,7 @@ func TestClient_SetToken(t *testing.T) {
 		if r.Header.Get("Authorization") != "Bearer new-token" {
 			t.Error("expected updated token in header")
 		}
-		json.NewEncoder(w).Encode(granola.DocumentListResponse{})
+		_ = json.NewEncoder(w).Encode(granola.DocumentListResponse{})
 	}))
 	defer server.Close()
 
