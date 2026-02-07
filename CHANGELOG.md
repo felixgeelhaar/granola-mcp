@@ -13,3 +13,7 @@ All notable changes to this project will be documented in this file.
 - docs: add comprehensive README with coverage badge
 - chore: add MIT license
 
+
+
+- ci: add GitHub Actions for CI and automated releases
+

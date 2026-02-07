@@ -1,0 +1,140 @@
+{
+  "id": "run-a4dd3ec9d845f995",
+  "plan_hash": "67941b88eaf75ea7d9e2cf828b48df883fef02267542615e98c1c5d20f7a64f9",
+  "repo_id": "git@github.com:felixgeelhaar/granola-mcp.git",
+  "repo_root": "/Users/felixgeelhaar/Developer/projects/open_source/granola-mcp",
+  "base_ref": "v1.0.1",
+  "head_sha": "c828a7b54067592b26a517f7001e58bc317f0dc3",
+  "commits": [
+    "c828a7b54067592b26a517f7001e58bc317f0dc3"
+  ],
+  "config_hash": "",
+  "plugin_plan_hash": "",
+  "version_current": "1.0.1",
+  "version_next": "1.0.2",
+  "bump_kind": "none",
+  "confidence": 0,
+  "risk_score": 0,
+  "reasons": null,
+  "actor_type": "user",
+  "actor_id": "cli",
+  "thresholds": {
+    "auto_approve_risk_threshold": 0,
+    "require_approval_above": 0,
+    "block_release_above": 0
+  },
+  "tag_name": "v1.0.2",
+  "notes": {
+    "text": "- ci: add GitHub Actions for CI and automated releases\n",
+    "audience_preset": "",
+    "tone_preset": "",
+    "provider": "basic",
+    "model": "",
+    "generated_at": "2026-02-07T11:17:40.51927+01:00"
+  },
+  "approval": {
+    "approved_by": "felixgeelhaar",
+    "approved_at": "2026-02-07T11:17:40.981611+01:00",
+    "auto_approved": true,
+    "plan_hash": "67941b88eaf75ea7d9e2cf828b48df883fef02267542615e98c1c5d20f7a64f9",
+    "risk_score": 0,
+    "approver_type": "user"
+  },
+  "steps": [
+    {
+      "name": "create-tag",
+      "type": "tag",
+      "config_hash": "",
+      "idempotency_key": ""
+    }
+  ],
+  "step_status": {
+    "create-tag": {
+      "state": "done",
+      "attempts": 1,
+      "started_at": "2026-02-07T11:17:41.448169+01:00",
+      "completed_at": "2026-02-07T11:17:42.531832+01:00",
+      "output": "Created and pushed tag v1.0.2"
+    }
+  },
+  "state": "published",
+  "history": [
+    {
+      "at": "2026-02-07T11:17:36.644718+01:00",
+      "from": "draft",
+      "to": "planned",
+      "event": "PLAN",
+      "actor": "cli",
+      "reason": "Release planned"
+    },
+    {
+      "at": "2026-02-07T11:17:40.088665+01:00",
+      "from": "planned",
+      "to": "versioned",
+      "event": "BUMP",
+      "actor": "cli",
+      "reason": "Version applied",
+      "metadata": {
+        "tag_name": "v1.0.2",
+        "version": "1.0.2"
+      }
+    },
+    {
+      "at": "2026-02-07T11:17:40.519282+01:00",
+      "from": "versioned",
+      "to": "notes_ready",
+      "event": "GENERATE_NOTES",
+      "actor": "cli",
+      "reason": "Notes generated"
+    },
+    {
+      "at": "2026-02-07T11:17:40.981627+01:00",
+      "from": "notes_ready",
+      "to": "approved",
+      "event": "APPROVE",
+      "actor": "felixgeelhaar",
+      "reason": "Release approved",
+      "metadata": {
+        "auto_approved": "true",
+        "plan_hash": "67941b88eaf75ea7d9e2cf828b48df883fef02267542615e98c1c5d20f7a64f9",
+        "risk_score": "0.00"
+      }
+    },
+    {
+      "at": "2026-02-07T11:17:41.447448+01:00",
+      "from": "approved",
+      "to": "publishing",
+      "event": "START_PUBLISH",
+      "actor": "cli",
+      "reason": "Publishing started"
+    },
+    {
+      "at": "2026-02-07T11:17:42.533228+01:00",
+      "from": "publishing",
+      "to": "published",
+      "event": "PUBLISH_COMPLETE",
+      "actor": "cli",
+      "reason": "Release published"
+    }
+  ],
+  "changeset_id": "cs-1770459456636092000",
+  "changeset": {
+    "id": "cs-1770459456636092000",
+    "from_ref": "v1.0.1",
+    "to_ref": "HEAD",
+    "commits": [
+      {
+        "hash": "c828a7b54067592b26a517f7001e58bc317f0dc3",
+        "type": "ci",
+        "subject": "ci: add GitHub Actions for CI and automated releases",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:15:41+01:00",
+        "raw_message": "ci: add GitHub Actions for CI and automated releases\n\n- release.yml: triggers on v* tag push, runs GoReleaser on macOS\n- ci.yml: runs tests with race detection and golangci-lint on push/PR\n- Disable relicta github plugin (GoReleaser creates the release)\n- Add mode: replace to goreleaser release config\n"
+      }
+    ]
+  },
+  "created_at": "2026-02-07T11:17:36.644705+01:00",
+  "updated_at": "2026-02-07T11:17:42.533234+01:00",
+  "published_at": "2026-02-07T11:17:42.533216+01:00"
+}
