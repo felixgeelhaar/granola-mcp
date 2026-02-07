@@ -1,0 +1,151 @@
+{
+  "id": "run-8d290ccf61e03da8",
+  "plan_hash": "7ff7fbfd5716cccfd679fbdd151feb555a5161db8c026bbaf1209b45c4481526",
+  "repo_id": "git@github.com:felixgeelhaar/granola-mcp.git",
+  "repo_root": "/Users/felixgeelhaar/Developer/projects/open_source/granola-mcp",
+  "base_ref": "v1.0.3",
+  "head_sha": "e1c9b055c147af634c0624b10df331616974a277",
+  "commits": [
+    "e1c9b055c147af634c0624b10df331616974a277",
+    "637f0509902e9ab2228fad75e2a0f1ab4028e654"
+  ],
+  "config_hash": "",
+  "plugin_plan_hash": "",
+  "version_current": "1.0.3",
+  "version_next": "1.1.0",
+  "bump_kind": "minor",
+  "confidence": 0,
+  "risk_score": 0,
+  "reasons": null,
+  "actor_type": "user",
+  "actor_id": "cli",
+  "thresholds": {
+    "auto_approve_risk_threshold": 0,
+    "require_approval_above": 0,
+    "block_release_above": 0
+  },
+  "tag_name": "v1.1.0",
+  "notes": {
+    "text": "- feat: add linux/amd64 and linux/arm64 builds\n- chore(release): update changelog for v1.0.3\n",
+    "audience_preset": "",
+    "tone_preset": "",
+    "provider": "basic",
+    "model": "",
+    "generated_at": "2026-02-07T11:46:49.268212+01:00"
+  },
+  "approval": {
+    "approved_by": "felixgeelhaar",
+    "approved_at": "2026-02-07T11:46:49.686541+01:00",
+    "auto_approved": true,
+    "plan_hash": "7ff7fbfd5716cccfd679fbdd151feb555a5161db8c026bbaf1209b45c4481526",
+    "risk_score": 0,
+    "approver_type": "user"
+  },
+  "steps": [
+    {
+      "name": "create-tag",
+      "type": "tag",
+      "config_hash": "",
+      "idempotency_key": ""
+    }
+  ],
+  "step_status": {
+    "create-tag": {
+      "state": "done",
+      "attempts": 1,
+      "started_at": "2026-02-07T11:46:50.09935+01:00",
+      "completed_at": "2026-02-07T11:46:51.097404+01:00",
+      "output": "Created and pushed tag v1.1.0"
+    }
+  },
+  "state": "published",
+  "history": [
+    {
+      "at": "2026-02-07T11:46:48.42583+01:00",
+      "from": "draft",
+      "to": "planned",
+      "event": "PLAN",
+      "actor": "cli",
+      "reason": "Release planned"
+    },
+    {
+      "at": "2026-02-07T11:46:48.842385+01:00",
+      "from": "planned",
+      "to": "versioned",
+      "event": "BUMP",
+      "actor": "cli",
+      "reason": "Version applied",
+      "metadata": {
+        "tag_name": "v1.1.0",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "at": "2026-02-07T11:46:49.268223+01:00",
+      "from": "versioned",
+      "to": "notes_ready",
+      "event": "GENERATE_NOTES",
+      "actor": "cli",
+      "reason": "Notes generated"
+    },
+    {
+      "at": "2026-02-07T11:46:49.686548+01:00",
+      "from": "notes_ready",
+      "to": "approved",
+      "event": "APPROVE",
+      "actor": "felixgeelhaar",
+      "reason": "Release approved",
+      "metadata": {
+        "auto_approved": "true",
+        "plan_hash": "7ff7fbfd5716cccfd679fbdd151feb555a5161db8c026bbaf1209b45c4481526",
+        "risk_score": "0.00"
+      }
+    },
+    {
+      "at": "2026-02-07T11:46:50.098974+01:00",
+      "from": "approved",
+      "to": "publishing",
+      "event": "START_PUBLISH",
+      "actor": "cli",
+      "reason": "Publishing started"
+    },
+    {
+      "at": "2026-02-07T11:46:51.098708+01:00",
+      "from": "publishing",
+      "to": "published",
+      "event": "PUBLISH_COMPLETE",
+      "actor": "cli",
+      "reason": "Release published"
+    }
+  ],
+  "changeset_id": "cs-1770461208418166000",
+  "changeset": {
+    "id": "cs-1770461208418166000",
+    "from_ref": "v1.0.3",
+    "to_ref": "HEAD",
+    "commits": [
+      {
+        "hash": "e1c9b055c147af634c0624b10df331616974a277",
+        "type": "feat",
+        "subject": "feat: add linux/amd64 and linux/arm64 builds",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:46:42+01:00",
+        "raw_message": "feat: add linux/amd64 and linux/arm64 builds\n\nUse zig as cross-compiler for CGO Linux builds from macOS runner.\nRelease now produces darwin + linux binaries for amd64 and arm64.\n"
+      },
+      {
+        "hash": "637f0509902e9ab2228fad75e2a0f1ab4028e654",
+        "type": "chore",
+        "scope": "release",
+        "subject": "chore(release): update changelog for v1.0.3",
+        "author": "Felix Geelhaar",
+        "author_email": "felix@felixgeelhaar.de",
+        "date": "2026-02-07T11:40:51+01:00",
+        "raw_message": "chore(release): update changelog for v1.0.3\n"
+      }
+    ]
+  },
+  "created_at": "2026-02-07T11:46:48.425819+01:00",
+  "updated_at": "2026-02-07T11:46:51.098713+01:00",
+  "published_at": "2026-02-07T11:46:51.0987+01:00"
+}

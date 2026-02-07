@@ -26,3 +26,8 @@ All notable changes to this project will be documented in this file.
 - fix(ci): use golangci-lint v2.8 for Go 1.25 compatibility
 - fix(ci): use golangci-lint-action v7 for golangci-lint v2
 
+
+
+- feat: add linux/amd64 and linux/arm64 builds
+- chore(release): update changelog for v1.0.3
+
